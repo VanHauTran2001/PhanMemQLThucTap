@@ -28,10 +28,10 @@ public class MenuQuanLyTT extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnQLGiaoVien = new javax.swing.JButton();
+        btnQLDeTai = new javax.swing.JButton();
+        btnQLSV = new javax.swing.JButton();
+        btnQLDiem = new javax.swing.JButton();
         btnDangXuat = new javax.swing.JButton();
         btnThoat = new javax.swing.JButton();
 
@@ -40,17 +40,39 @@ public class MenuQuanLyTT extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel1.setText("Menu Quản Lý Thực Tập");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton1.setText("Quản Lý Giảng Viên Hướng Dẫn");
+        btnQLGiaoVien.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnQLGiaoVien.setText("Quản Lý Giảng Viên Hướng Dẫn");
+        btnQLGiaoVien.setMaximumSize(new java.awt.Dimension(183, 23));
+        btnQLGiaoVien.setMinimumSize(new java.awt.Dimension(183, 23));
+        btnQLGiaoVien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQLGiaoVienActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton2.setText("Quản Lý Đề Tài Thực Tập");
+        btnQLDeTai.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnQLDeTai.setText("Quản Lý Đề Tài Thực Tập");
+        btnQLDeTai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQLDeTaiActionPerformed(evt);
+            }
+        });
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton3.setText("Quản Lý Sinh Viên Thực Tập");
+        btnQLSV.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnQLSV.setText("Quản Lý Sinh Viên Thực Tập");
+        btnQLSV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQLSVActionPerformed(evt);
+            }
+        });
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton4.setText("Quản Lý Điểm Thực Tập");
+        btnQLDiem.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnQLDiem.setText("Quản Lý Điểm Thực Tập");
+        btnQLDiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQLDiemActionPerformed(evt);
+            }
+        });
 
         btnDangXuat.setText("Đăng Xuất");
         btnDangXuat.addActionListener(new java.awt.event.ActionListener() {
@@ -75,20 +97,21 @@ public class MenuQuanLyTT extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
+                        .addGap(41, 41, 41)
                         .addComponent(btnDangXuat)
                         .addGap(28, 28, 28)
-                        .addComponent(btnThoat)))
+                        .addComponent(btnThoat))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnQLSV, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(btnQLGiaoVien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnQLDeTai, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnQLDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
@@ -98,12 +121,12 @@ public class MenuQuanLyTT extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnQLSV, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnQLDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnQLGiaoVien, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnQLDeTai, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -115,7 +138,7 @@ public class MenuQuanLyTT extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
-        DangNhap dangNhap = new DangNhap();
+        MHDangNhap dangNhap = new MHDangNhap();
         dangNhap.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnDangXuatActionPerformed
@@ -123,6 +146,30 @@ public class MenuQuanLyTT extends javax.swing.JFrame {
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnThoatActionPerformed
+
+    private void btnQLSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLSVActionPerformed
+        QLSinhVienTT qLSinhVienTT = new QLSinhVienTT();
+        qLSinhVienTT.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnQLSVActionPerformed
+
+    private void btnQLGiaoVienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLGiaoVienActionPerformed
+        QLGiangVienHD qLGiangVienHD = new QLGiangVienHD();
+        qLGiangVienHD.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnQLGiaoVienActionPerformed
+
+    private void btnQLDiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLDiemActionPerformed
+        QLDiemTT qLDiemTT = new QLDiemTT();
+        qLDiemTT.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnQLDiemActionPerformed
+
+    private void btnQLDeTaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQLDeTaiActionPerformed
+        QLDeTaiTT qLDeTaiTT = new QLDeTaiTT();
+        qLDeTaiTT.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnQLDeTaiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,11 +208,11 @@ public class MenuQuanLyTT extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDangXuat;
+    private javax.swing.JButton btnQLDeTai;
+    private javax.swing.JButton btnQLDiem;
+    private javax.swing.JButton btnQLGiaoVien;
+    private javax.swing.JButton btnQLSV;
     private javax.swing.JButton btnThoat;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

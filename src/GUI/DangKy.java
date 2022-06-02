@@ -202,7 +202,7 @@ public class DangKy extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyActionPerformed
-       DangNhap dangNhap = new DangNhap();
+       MHDangNhap dangNhap = new MHDangNhap();
        dangNhap.setVisible(true);
        dispose();
     }//GEN-LAST:event_btnHuyActionPerformed
@@ -228,7 +228,7 @@ public class DangKy extends javax.swing.JFrame {
                     Logger.getLogger(DangKy.class.getName()).log(Level.SEVERE, null, ex);
                 }
                     System.out.println(tk+mk);
-                    DangNhap dangNhap = new DangNhap();
+                    MHDangNhap dangNhap = new MHDangNhap();
                     dangNhap.setVisible(true);
                     dispose();
             }

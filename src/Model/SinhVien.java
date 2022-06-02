@@ -87,7 +87,4 @@ public class SinhVien implements Serializable{
     public void setKhoa(String Khoa) {
         this.Khoa = Khoa;
     }
-    
-    
-    
 }

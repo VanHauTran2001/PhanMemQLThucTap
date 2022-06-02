@@ -25,37 +25,60 @@ public class MenuSinhVienTT extends javax.swing.JFrame {
     
     public MenuSinhVienTT() {
         initComponents();
-//        loadFile();
+        loadFile();
     }
 
-      private void loadFile() {
+     private void loadFile() {
         try {
            dsSV=(ArrayList<SinhVien>) dBEngine.docFile(file);
         } catch (Exception ex) {
            JOptionPane.showMessageDialog(this,ex);
         }
     }
+     private void loadThongTinSV(){
+         String tenSV ="";
+         for(var sv : dsSV){
+             if(sv.getMaSinhVien().equalsIgnoreCase(maSV)){
+                 tenSV = sv.getHoTen();
+             }
+         }
+         txtHoTen.setText("Sinh viên : " + tenSV);
+         txtMaSV.setText("Mã sinh viên : " + maSV);
+     }
      public void setMaSV(String maSV) {
         this.maSV = maSV;
+        loadThongTinSV();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnXemLichTT = new javax.swing.JButton();
+        btnDangKyTT = new javax.swing.JButton();
         btnDangXuat = new javax.swing.JButton();
         btnThoat = new javax.swing.JButton();
+        txtHoTen = new javax.swing.JLabel();
+        txtMaSV = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Menu Sinh Viên Thực Tập");
 
-        jButton1.setText("Xem Lịch Thực Tập");
+        btnXemLichTT.setText("Xem Lịch Thực Tập");
+        btnXemLichTT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXemLichTTActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Đăng Ký Thực Tập");
+        btnDangKyTT.setText("Đăng Ký Thực Tập");
+        btnDangKyTT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDangKyTTActionPerformed(evt);
+            }
+        });
 
         btnDangXuat.setText("Đăng Xuất");
         btnDangXuat.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +94,12 @@ public class MenuSinhVienTT extends javax.swing.JFrame {
             }
         });
 
+        txtHoTen.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtHoTen.setText("Họ tên ");
+
+        txtMaSV.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtMaSV.setText("Ma SV");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,32 +107,40 @@ public class MenuSinhVienTT extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(73, 73, 73)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnDangXuat)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnThoat)
-                                .addGap(167, 167, 167))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(jLabel1)))
-                .addContainerGap(82, Short.MAX_VALUE))
+                                .addGap(167, 167, 167))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtHoTen)
+                                    .addComponent(btnXemLichTT, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(76, 76, 76)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtMaSV)
+                                    .addComponent(btnDangKyTT, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(57, 57, 57)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                    .addComponent(txtHoTen)
+                    .addComponent(txtMaSV))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnXemLichTT, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDangKyTT, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -114,7 +151,7 @@ public class MenuSinhVienTT extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
-        DangNhap dangNhap = new DangNhap();
+        MHDangNhap dangNhap = new MHDangNhap();
         dangNhap.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnDangXuatActionPerformed
@@ -122,6 +159,19 @@ public class MenuSinhVienTT extends javax.swing.JFrame {
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnThoatActionPerformed
+
+    private void btnXemLichTTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXemLichTTActionPerformed
+        XemLichTT xemLichTT = new XemLichTT(maSV);
+        xemLichTT.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnXemLichTTActionPerformed
+
+    private void btnDangKyTTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangKyTTActionPerformed
+       DangKyThucTap dangKyThucTap = new DangKyThucTap();
+       dangKyThucTap.setMaSV(maSV);
+       dangKyThucTap.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_btnDangKyTTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,11 +209,13 @@ public class MenuSinhVienTT extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDangKyTT;
     private javax.swing.JButton btnDangXuat;
     private javax.swing.JButton btnThoat;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnXemLichTT;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel txtHoTen;
+    private javax.swing.JLabel txtMaSV;
     // End of variables declaration//GEN-END:variables
 
 
