@@ -265,11 +265,9 @@ public class QLDiemTT extends javax.swing.JFrame {
                    loadTable();
                }else{
              JOptionPane.showMessageDialog(this,"Sinh viên đã được thêm điểm !");   
-               }
-            
-         }
-        }
-        
+               }         
+            }
+        }     
     }//GEN-LAST:event_btnThemActionPerformed
     
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
@@ -291,8 +289,7 @@ public class QLDiemTT extends javax.swing.JFrame {
                             loadTable();
                         }else {
                             JOptionPane.showMessageDialog(this, "Sinh viên đã được thêm điểm !");
-                        }
-                        
+                        }                       
                     }else{
                             diemSV = new DiemTT(maSV, diem, xepLoai());
                             dsDiemTT.set(dongClick,diemSV);
@@ -300,28 +297,30 @@ public class QLDiemTT extends javax.swing.JFrame {
                             loadTable();
                     }
                 }
-        }
+           }
       }
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         dongClick = jTableDiem.getSelectedRow();      
         if(dongClick != -1){
-            int check = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa không ?","Dialog Confirm",JOptionPane.YES_NO_OPTION);
+            int check = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa không ?"
+                    ,"Dialog Confirm",JOptionPane.YES_NO_OPTION);
             if(check==JOptionPane.YES_OPTION){
                 dsDiemTT.remove(dongClick);
                 luuFileDiem();
                 loadTable();
-            }
-           
+            }          
         }
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnSapXepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSapXepActionPerformed
         Collections.sort(dsDiemTT,new Comparator<DiemTT>(){
             @Override
-            public int compare(DiemTT o1, DiemTT o2) {     
-              return (o1.getDiem().compareTo(o2.getDiem()));   
+            public int compare(DiemTT o1, DiemTT o2) {   
+                int d1 = Integer.parseInt(o1.getDiem());
+                int d2 = Integer.parseInt(o2.getDiem());
+              return d1 > d2 ? 1:-1;
             }
         });
        loadTable();
@@ -335,7 +334,7 @@ public class QLDiemTT extends javax.swing.JFrame {
                 dsDiemSearch.add(ds);
             }
         }
-        jTableDiem.setModel(new DiemTTDAO(dsDiemSearch));
+        jTableDiem.setModel(new DiemTTDAO(dsDiemSearch,dsSinhVien));
     }//GEN-LAST:event_btnTimKiemActionPerformed
 
     private void btnXoaTrangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaTrangActionPerformed
@@ -357,9 +356,10 @@ public class QLDiemTT extends javax.swing.JFrame {
         dongClick = jTableDiem.getSelectedRow();
         if(dongClick !=-1){
             diemSV = dsDiemTT.get(dongClick);
+            
             txtDiem.setText(diemSV.getDiem()+"");
             jComboBoxSV.setSelectedItem(diemSV.getMaSV());
-            
+             
         }
     }//GEN-LAST:event_jTableDiemMouseClicked
 
@@ -448,7 +448,7 @@ public class QLDiemTT extends javax.swing.JFrame {
     }
 
     private void loadTable() {
-        jTableDiem.setModel(new DiemTTDAO(dsDiemTT));
+        jTableDiem.setModel(new DiemTTDAO(dsDiemTT,dsSinhVien));
     }
 
    

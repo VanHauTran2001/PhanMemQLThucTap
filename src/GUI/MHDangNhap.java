@@ -164,8 +164,7 @@ public class MHDangNhap extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(this,"Tài khoản hoặc mật khẩu không chính xác !");
             }
-        }
-        
+        }     
     }//GEN-LAST:event_btnDangNhapActionPerformed
 
     private void btnMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMoiActionPerformed

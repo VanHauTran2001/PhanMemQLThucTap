@@ -151,7 +151,8 @@ public class XemLichTT extends javax.swing.JFrame {
     private void btnHuyDkyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyDkyActionPerformed
        dongClik = jTableXemLichTT.getSelectedRow();
        if(dongClik != -1){
-          int check = JOptionPane.showConfirmDialog(null,"Bạn chắc chắn muốn hủy không ?" ,"Dialog Confirm",JOptionPane.YES_NO_OPTION);
+          int check = JOptionPane.showConfirmDialog(null,"Bạn chắc chắn muốn hủy không ?" 
+                  ,"Dialog Confirm",JOptionPane.YES_NO_OPTION);
            if(check == JOptionPane.YES_OPTION){
                 dsDK.remove(dsDKAll.get(dongClik));
                 luuFile();

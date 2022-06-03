@@ -254,7 +254,8 @@ public class QLGiangVienHD extends javax.swing.JFrame {
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
          dongClick= jTableGiangVien.getSelectedRow();
         if(dongClick != -1){
-            int check = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa không ?","Dialog Confirm",JOptionPane.YES_NO_OPTION);
+            int check = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa không ?"
+                    ,"Dialog Confirm",JOptionPane.YES_NO_OPTION);
             if(check==JOptionPane.YES_OPTION){
                 dsGV.remove(dongClick);
                 luufile();

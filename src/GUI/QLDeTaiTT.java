@@ -306,7 +306,8 @@ public class QLDeTaiTT extends javax.swing.JFrame {
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         dongClick = jTableDeTai.getSelectedRow();
         if(dongClick != -1){
-            int check = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa không ?","Dialog Confirm",JOptionPane.YES_NO_OPTION);
+            int check = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa không ?"
+                    ,"Dialog Confirm",JOptionPane.YES_NO_OPTION);
             if(check==JOptionPane.YES_OPTION){
                 dsDeTai.remove(dongClick);
                 luufileDT();

@@ -227,7 +227,6 @@ public class DangKy extends javax.swing.JFrame {
                 } catch (Exception ex) {
                     Logger.getLogger(DangKy.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                    System.out.println(tk+mk);
                     MHDangNhap dangNhap = new MHDangNhap();
                     dangNhap.setVisible(true);
                     dispose();
